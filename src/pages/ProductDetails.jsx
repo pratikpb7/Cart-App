@@ -35,7 +35,7 @@ export default function productsDetails() {
     alert("Cart Added");
   };
 
-  if (!products) return <h2>Loading...</h2>;
+  if (!products) return <h2>Loading Please Wait...</h2>;
 
   return (
     <div>
