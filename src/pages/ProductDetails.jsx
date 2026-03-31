@@ -9,13 +9,13 @@ export default function productsDetails() {
   const { id } = useParams();
   const [products, setProducts] = useState(null);
   const { cart, setCart } = useContext(CartContext);
-  const [selectedImage, setselectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     getProductsByID(id).then((res) => {
       setProducts(res.data);
-      setselectedImage(res.data.images[0]); // 🔥 first image
+      setSelectedImage(res.data.images[0]);
     });
   }, [id]);
 
@@ -43,15 +43,15 @@ export default function productsDetails() {
 
       <div className="products-details">
         <div className="image-section">
-       {products.images.map((img, i) => (
-          <img
-            key={i}
-            src={img}
-            width="60"
-            onClick={() => setselectedImage(img)}
-            style={{ cursor: "pointer", margin: "5px" }}
-          />
-        ))}
+          {products.images.map((img, i) => (
+            <img
+              key={i}
+              src={img}
+              width="60"
+              onClick={() => setSelectedImage(img)}
+              style={{ cursor: "pointer", margin: "5px" }}
+            />
+          ))}
         </div>
 
         <div className="info-section">
