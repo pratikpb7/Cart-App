@@ -32,7 +32,7 @@ export default function productsDetails() {
       setCart([...cart, { ...products, quantity: 1 }]);
     }
     // navigate("/cart")
-    alert("Cart Added");
+    alert("Cart Added Successfully");
   };
 
   if (!products) return <h2>Please Wait...</h2>;
