@@ -22,7 +22,17 @@ export default function productsDetails() {
   }, [id]);
 
   const addtoCart = () => {
-    
+    const existing = cart.find((item) => item.id == products.id);
+    if (existing) {
+      const updatedCart = cart.map((item) =>
+        item.id == products.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...products, quantity: 1 }]);
+    }
     // navigate("/cart")
    
   };
