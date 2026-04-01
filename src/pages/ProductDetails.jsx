@@ -5,12 +5,14 @@ import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { getProductsByID } from "../services/api";
 import "./ProductDetails.css";
+import { useDispatch } from "react-redux";
 export default function productsDetails() {
   const { id } = useParams();
   const [products, setProducts] = useState(null);
   const { cart, setCart } = useContext(CartContext);
   const [selectedImage, setSelectedImage] = useState("");
   const navigate = useNavigate();
+  const dispatch=useDispatch()
 
   useEffect(() => {
     getProductsByID(id).then((res) => {
@@ -20,19 +22,9 @@ export default function productsDetails() {
   }, [id]);
 
   const addtoCart = () => {
-    const existing = cart.find((item) => item.id == products.id);
-    if (existing) {
-      const updatedCart = cart.map((item) =>
-        item.id == products.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item,
-      );
-      setCart(updatedCart);
-    } else {
-      setCart([...cart, { ...products, quantity: 1 }]);
-    }
+    
     // navigate("/cart")
-    alert("Cart Added Successfully");
+   
   };
 
   if (!products) return <h2>Please Wait...</h2>;
@@ -47,7 +39,7 @@ export default function productsDetails() {
             <img
               key={i}
               src={img}
-              width="60"
+              width="50"
               onClick={() => setSelectedImage(img)}
               style={{ cursor: "pointer", margin: "5px" }}
             />
@@ -61,7 +53,7 @@ export default function productsDetails() {
           <p className="desc">{products.description}</p>
         </div>
         <div className="buttons">
-          <button onClick={addtoCart}>Add to Cart</button>
+          <button onClick={dispatch(addtoCart(products))}>Add to Cart</button>
           <button onClick={() => navigate("/cart")}>Proceed to cart</button>
           <button onClick={() => navigate("/")}>Add More Items</button>
         </div>

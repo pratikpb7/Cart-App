@@ -4,7 +4,7 @@
   align-items: center;
 
   padding: 30px 30px;
-  background-color: #111;
+  background-color: rgb(18, 18, 18);
   color: white;
   position: sticky;
   top: 0;
@@ -19,6 +19,8 @@
 .nav-logo {
   font-size: 20px;
   font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
 .nav-logo a {
   color: white;
@@ -29,6 +31,7 @@
 .nav-links {
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
 .nav-links a {
