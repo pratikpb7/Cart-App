@@ -32,7 +32,6 @@ export default function productsDetails() {
       setCart([...cart, { ...products, quantity: 1 }]);
     }
     // navigate("/cart")
-   
   };
 
   if (!products) return <h2>Please Wait...</h2>;
@@ -62,7 +61,7 @@ export default function productsDetails() {
         </div>
         <div className="buttons">
           <button onClick={addtoCart}>Add to Cart</button>
-          <button onClick={() => navigate("/cart")}>Proceed to cart</button>
+          <button onClick={() => navigate("/cart")}>Proceed cart</button>
           {/* <button onClick={() => navigate("/")}>Add More Items</button> */}
         </div>
       </div>
