@@ -9,6 +9,32 @@
   position: sticky;
   top: 0;
 }
+
+
+.search-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* INPUT FIELD */
+.search-box input {
+  width: 30%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+/* FOCUS EFFECT */
+.search-box input:focus {
+  border-color: black;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+
 .cart-badge {
   background-color: red;
   font-size: 15px;

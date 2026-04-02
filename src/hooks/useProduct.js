@@ -10,6 +10,7 @@ export default function useProducts() {
       .then((res) => {
         setProducts(res.data.products);
         setLoading(false);
+        
       })
       .catch(() => {
         setError("Something went wrong");
