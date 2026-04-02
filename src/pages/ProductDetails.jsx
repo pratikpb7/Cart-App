@@ -61,7 +61,7 @@ export default function productsDetails() {
         </div>
         <div className="buttons">
           <button onClick={addtoCart}>Add to Cart</button>
-          <button onClick={() => navigate("/cart")}>Proceed cart</button>
+          <button onClick={() => navigate("/cart")}>Proceed to cart</button>
           {/* <button onClick={() => navigate("/")}>Add More Items</button> */}
         </div>
       </div>
