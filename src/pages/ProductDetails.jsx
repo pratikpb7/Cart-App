@@ -5,14 +5,12 @@ import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { getProductsByID } from "../services/api";
 import "./ProductDetails.css";
-import { useDispatch } from "react-redux";
 export default function productsDetails() {
   const { id } = useParams();
   const [products, setProducts] = useState(null);
   const { cart, setCart } = useContext(CartContext);
   const [selectedImage, setSelectedImage] = useState("");
   const navigate = useNavigate();
-  const dispatch=useDispatch()
 
   useEffect(() => {
     getProductsByID(id).then((res) => {
@@ -63,9 +61,9 @@ export default function productsDetails() {
           <p className="desc">{products.description}</p>
         </div>
         <div className="buttons">
-          <button onClick={dispatch(addtoCart(products))}>Add to Cart</button>
+          <button onClick={addtoCart}>Add to Cart</button>
           <button onClick={() => navigate("/cart")}>Proceed to cart</button>
-          <button onClick={() => navigate("/")}>Add More Items</button>
+          {/* <button onClick={() => navigate("/")}>Add More Items</button> */}
         </div>
       </div>
     </div>
