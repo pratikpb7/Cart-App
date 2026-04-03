@@ -3,6 +3,7 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import "./Productcard.css"
 
 export default function productsCard({ products }) {
   const { cart, setCart } = useContext(CartContext);
@@ -19,13 +20,24 @@ export default function productsCard({ products }) {
   };
 
   return (
-    <div>
+    <div className="card">
+      <span className="discount-badge">
+    {Math.round(products.discountPercentage)}% OFF
+  </span>
       <Link className="card-link" to={`/products/${products.id}`}>
         <img src={products.thumbnail} alt="" />
-        <h3>{products.title}</h3>
-        <p>Price :₹ {products.price}</p>
-        <p>Discount: {products.discountPercentage}% OFF</p>
-        <p>In stock : {products.stock}</p>
+       <h3 className="title">{products.title}</h3>
+
+<p className="rating">
+  {"⭐".repeat(Math.round(products.rating))}
+  <span className="rating-number">({products.rating})</span>
+</p>
+        <h3 className="price">₹ {products.price} <span className="original">
+    ₹ {Math.round(products.price / (1 - products.discountPercentage / 100))}
+  </span></h3>
+        
+        {/* <p className="discount">Discount: {products.discountPercentage}% OFF</p>
+        <p className="stock">In stock : {products.stock}</p> */}
       </Link>
 
       <div>
