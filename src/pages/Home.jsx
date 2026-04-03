@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import "../App.css";
 import useProduct from "../hooks/useProduct";
+import "../App.css"
 
 export default function Home({ search }) {
   const { products, loading, error } = useProduct();

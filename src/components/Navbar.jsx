@@ -11,25 +11,16 @@ export default function Navbar({ setSearch }) {
   return (
     <div className="navbar">
       <Link className="nav-logo" to="/">
-        Cart App
+        E-Commerce.in
       </Link>
 
-      <div className="search-box">
-          
-
-        <input 
+     
+        <input
           type="text"
-          
           placeholder="Search products..."
           onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={(e) => {
-  if (e.key === "Enter") {
-    setSearch("");
-  }
-}}
         />
-        
-      </div>
+    
 
       <div className="nav-links">
         <Link to="/">Home</Link>

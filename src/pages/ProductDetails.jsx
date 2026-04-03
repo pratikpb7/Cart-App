@@ -37,34 +37,48 @@ export default function productsDetails() {
   if (!products) return <h2>Please Wait...</h2>;
 
   return (
-    <div>
-      <img src={selectedImage} width="300" />
+   <div className="details-container">
+  <div className="details-card">
 
-      <div className="products-details">
-        <div className="image-section">
-          {products.images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              width="50"
-              onClick={() => setSelectedImage(img)}
-              style={{ cursor: "pointer", margin: "5px" }}
-            />
-          ))}
-        </div>
+    {/* LEFT SIDE */}
+    <div className="left">
+      <img src={selectedImage} className="main-image" />
 
-        <div className="info-section">
-          <p className="price">Price: ₹ {products.price}</p>
-          <p className="discount">Discount: {products.discountPercentage}%</p>
-          <p className="stock">Stock: {products.stock}</p>
-          <p className="desc">{products.description}</p>
-        </div>
-        <div className="buttons">
-          <button onClick={addtoCart}>Add to Cart</button>
-          <button onClick={() => navigate("/cart")}>Proceed cart</button>
-          {/* <button onClick={() => navigate("/")}>Add More Items</button> */}
-        </div>
+      <div className="thumbnail-row">
+        {products.images.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            className="thumb"
+            onClick={() => setSelectedImage(img)}
+          />
+        ))}
       </div>
     </div>
+
+    {/* RIGHT SIDE */}
+    <div className="right">
+      <h2>{products.title}</h2>
+
+      <p className="rating">
+        {"⭐".repeat(Math.round(products.rating))}
+        ({products.rating})
+      </p>
+
+      <h3 className="price">₹ {products.price}</h3>
+      <p className="discount">{products.discountPercentage}% OFF</p>
+      <p className="stock">Stock: {products.stock}</p>
+
+      <p className="desc">{products.description}</p>
+
+      <div className="btn">
+        <button onClick={addtoCart}>Add to Cart</button>
+        <button onClick={()=>navigate("/cart")} className="buy">Buy Now</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    
   );
 }
