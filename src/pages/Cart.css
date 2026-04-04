@@ -11,6 +11,11 @@
   flex-direction: column;
   gap: 20px;
 }
+.cart-h2{
+  
+  text-align: center;
+  margin-top: 100px;
+}
 
 .cart-item {
   display: flex;
