@@ -47,7 +47,7 @@ if (orderPlaced) {
   return <h2>Order placed successfully 🎉</h2>;
 }
 if (cart.length === 0) {
-  return <h2>Your cart is empty 🛒</h2>;
+  return <h2 className="cart-h2">Your cart is empty 🛒</h2>;
 }
 
   // return (
