@@ -5,6 +5,7 @@ import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { getProductsByID } from "../services/api";
 import "./ProductDetails.css";
+import "../App.css"
 export default function productsDetails() {
   const { id } = useParams();
   const [products, setProducts] = useState(null);
@@ -34,7 +35,11 @@ export default function productsDetails() {
     // navigate("/cart")
   };
 
-  if (!products) return <h2>Please Wait...</h2>;
+  if (!products)return (
+    <div className="loader-container">
+      <div className="spinner"></div>
+    </div>
+  );
 
   return (
    <div className="details-container">
@@ -71,10 +76,24 @@ export default function productsDetails() {
 
       <p className="desc">{products.description}</p>
 
+      
+
       <div className="btn">
         <button onClick={addtoCart}>Add to Cart</button>
         <button onClick={()=>navigate("/cart")} className="buy">Buy Now</button>
       </div>
+       <div className="reviews-section">
+    <h2>Customer Reviews</h2>
+
+    {products.reviews?.map((rev, i) => (
+      <div key={i} className="review-card">
+        <strong>{rev.reviewerName}</strong>
+        <p>{"⭐".repeat(rev.rating)}</p>
+        <p>{rev.comment}</p>
+      </div>
+    ))}
+  </div>
+
     </div>
 
   </div>

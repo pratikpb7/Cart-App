@@ -1,20 +1,34 @@
+.product-page {
+  background: #f5f5f5;
+}
+
+/* 🔥 MAIN LAYOUT */
 .details-card {
   display: flex;
   gap: 50px;
   padding: 30px;
   background: white;
+
+  align-items: flex-start; /* IMPORTANT */
 }
+
+/* LEFT SIDE */
 .left {
   flex: 1;
   text-align: center;
+
+  position: sticky;
+  top: 100px;
+
+  height: fit-content;
 }
 
 .main-image {
   width: 350px;
-  height: 350px;
   object-fit: contain;
 }
 
+/* THUMBNAILS */
 .thumbnail-row {
   display: flex;
   gap: 10px;
@@ -28,17 +42,19 @@
   border: 1px solid #ddd;
   padding: 5px;
 }
+
+/* RIGHT SIDE */
 .right {
   flex: 2;
+  text-align: left;
 }
 
-.right h2 {
-  margin-bottom: 10px;
-}
+/* TEXT STYLING */
 .rating {
   color: #facc15;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
+
 .price {
   color: green;
   font-size: 22px;
@@ -48,19 +64,23 @@
 .discount {
   color: red;
 }
+
 .stock {
   margin: 10px 0;
   font-weight: bold;
+  color: #2563eb;
 }
+
 .desc {
   margin-top: 15px;
   line-height: 1.5;
   color: #555;
 }
+
+/* BUTTONS */
 .btn {
   margin-top: 20px;
   display: flex;
-  justify-content: center;
   gap: 15px;
 }
 
@@ -75,4 +95,16 @@
 
 .btn .buy {
   background: #fb641b;
+}
+
+/* 🔥 REVIEWS */
+.reviews-section {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+}
+
+.review-card {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
 }
